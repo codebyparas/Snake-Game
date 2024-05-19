@@ -33,8 +33,8 @@ function update(){
     context.fillRect(0, 0, board.width, board.height);
 
     context.fillStyle = "lime";
-    snakeX += velocityX;
-    snakeY += velocityY;
+    snakeX += velocityX * blockSize;
+    snakeY += velocityY * blockSize;
     context.fillRect(snakeX, snakeY, blockSize, blockSize);
 
     context.fillStyle = "red";
