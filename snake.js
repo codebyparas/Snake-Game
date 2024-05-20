@@ -12,6 +12,8 @@ let snakeY = blockSize * 5;
 let velocityX = 0;
 let velocityY = 0;
 
+let snakeBody = [];
+
 // Food
 let foodX;
 let foodY;
@@ -36,6 +38,7 @@ function update(){
     context.fillRect(foodX, foodY, blockSize, blockSize);
 
     if(snakeX == foodX && snakeY == foodY){
+        snakeBody.push([foodX, foodY]);
         placeFood();
     }
 
@@ -43,6 +46,9 @@ function update(){
     snakeX += velocityX * blockSize;
     snakeY += velocityY * blockSize;
     context.fillRect(snakeX, snakeY, blockSize, blockSize);
+    for(let i = 0; i < snakeBody.length; i++){
+        context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
+    }
 }
 
 function changeDirection(e){
